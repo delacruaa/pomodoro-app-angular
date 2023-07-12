@@ -1,0 +1,18 @@
+<div class="wrapper">
+        <div class="inner"> 
+            <app-svg-circle class="svg"  [strokeDashOffsetPx]="strokeDashOffsetPx" [strokeDashOffsetPxMob]="strokeDashOffsetPxMob" ></app-svg-circle>
+            <!-- <SVG strokeDashOffsetPx={strokeDashOffsetPx} strokeDashOffsetPxMob={strokeDashOffsetPxMob} color={color} /> -->
+            <div class="clock">
+                {{formattedTime}}
+            </div>
+            <!-- <cd-timer [autoStart]="false" (onStart)="start" #basicTimer [startTime]="time"  [endTime]="0" [countdown]="true" format="ms"></cd-timer> -->
+            <button  *ngIf="!isRunning && !isRunned" (click)="handleStart()" class="btn">start</button>
+            <button  *ngIf="isRunning && time!==0 " (click)="handlePause()" class="btn">pause</button>
+            <button  *ngIf="!isRunning && isRunned" (click)="handleResume()" class="btn">resume</button>
+            <button  *ngIf="time==0" (click)="handleRestart()" class="btn">restart</button>
+        </div>
+
+        <button class="settingBtn" (click)="openModal()" >
+        <img src="/assets/icon-settings.svg" alt="iconSettings" />
+        </button>
+</div>

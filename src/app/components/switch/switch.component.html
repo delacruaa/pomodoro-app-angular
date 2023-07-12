@@ -1,0 +1,5 @@
+<div class="wrapper">
+        <div *ngFor="let item of tabs" [ngClass]="activeTab==item? 'tab_active': 'tab'" (click)="changeActiveTab(item)">
+            {{item}}
+        </div>
+</div>

@@ -1,0 +1,25 @@
+.svg {
+   
+    .circle_animation {
+        stroke-dasharray: 1130px;
+        
+        /* stroke-dashoffset: 565; */
+    }
+}
+.svg_mob {
+    display: none;
+}
+
+@media(max-width:436px) {
+    .svg {
+        display: none;
+    }
+    .svg_mob {
+        display: block;
+        .circle_animation {
+            stroke-dasharray: 790px;
+            
+            /* stroke-dashoffset: 565; */
+        }
+    }
+}

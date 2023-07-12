@@ -1,0 +1,22 @@
+.color {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    img {
+        width: 20px;
+        height: 20px;
+    }
+}
+.red{
+    background-color:var(--color-red);
+ }
+.blue {
+    background-color:var(--color-blue);
+ }
+.purple {
+    background-color:var(--color-purple);
+}

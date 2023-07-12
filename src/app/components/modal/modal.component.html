@@ -1,0 +1,57 @@
+<div class="overlay" (click)="closeModal()">
+    <div class="modal"  (click)="$event.stopPropagation()" >
+        <div class="heading">
+            <h2 class="head_text">Settings</h2>
+            <button class="closBtn" (click)="closeModal()">
+                <img src="/assets/icon-close.svg" alt="iconClose" />
+            </button>
+        </div>
+        <div class="divider"></div>
+        <form [formGroup] = "formGroup" (ngSubmit)="saveSettings()" class="modal_content">
+            <p class="title">TIME (MINUTES)</p>
+            <div  class="time_wrapper">
+                <div class="input_wrapper">
+                    <label>pomodoro</label>
+                    <input [ngClass]="submitted &&  this.formGroup.get('localPomodoro')?.invalid? 'input input__error' : 'input'" type="number"  formControlName="localPomodoro" >
+                    <div class="error__wrapper" *ngIf="submitted &&  this.formGroup.get('localPomodoro')?.invalid">
+                        <div class="error" *ngIf="this.formGroup.get('localPomodoro')?.errors?.['required']"> <small> Number is required.</small>  </div>
+                        <div class="error" *ngIf="this.formGroup.get('localPomodoro')?.errors?.['min'] || this.formGroup.get('localPomodoro')?.errors?.['max'] " > <small>between 1 and 60.</small>  </div>
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <label>short</label>
+                    <input [ngClass]="submitted &&  this.formGroup.get('localShort')?.invalid? 'input input__error' : 'input'" type="number"  formControlName="localShort" >
+                    <div class="error__wrapper" *ngIf="submitted &&  this.formGroup.get('localShort')?.invalid">
+                        <div class="error" *ngIf="this.formGroup.get('localShort')?.errors?.['required']"> <small> Number is required.</small>  </div>
+                        <div class="error" *ngIf="this.formGroup.get('localShort')?.errors?.['min'] || this.formGroup.get('localShort')?.errors?.['max'] " > <small>between 1 and 60.</small>  </div>
+                    </div>
+                </div>
+                <div class="input_wrapper">
+                    <label>long</label>
+                    <input [ngClass]="submitted &&  this.formGroup.get('localLong')?.invalid? 'input input__error' : 'input'" type="number"  formControlName="localLong" >
+                    <div class="error__wrapper" *ngIf="submitted &&  this.formGroup.get('localLong')?.invalid">
+                        <div class="error" *ngIf="this.formGroup.get('localLong')?.errors?.['required']"> <small> Number is required.</small>  </div>
+                        <div class="error" *ngIf="this.formGroup.get('localLong')?.errors?.['min'] || this.formGroup.get('localLong')?.errors?.['max'] " > <small>between 1 and 60.</small>  </div>
+                    </div>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="set_wrapper">
+                <p class="setName">font</p>
+                <div class="variants">
+                    <app-font *ngFor="let item of fontArray" [item]="item" [font]="font"  (click)="changeFont(item)" >
+                    </app-font>
+                </div>
+            </div>
+            <div class="divider"></div>
+            <div class="set_wrapper">
+                <p class="setName">color</p>
+                <div class="variants">
+                    <app-color *ngFor="let item of colorArray" [color]="color"  [item]="item"  (click)="changeColor(item)" ></app-color>
+                </div>
+            </div>
+            <button  type="submit" class="btn" >Apply</button>
+        </form>
+       
+    </div>
+</div>

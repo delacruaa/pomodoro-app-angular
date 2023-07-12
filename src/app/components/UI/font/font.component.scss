@@ -1,0 +1,39 @@
+.font {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--color-offWhite);
+    display: flex;
+    -webkit-box-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    align-items: center;
+    opacity: 0.73;
+    cursor: pointer;
+    p {
+        font-weight: 400;
+        font-size: 16px;
+        line-height:16px;
+        color:var(--color-primary)
+        
+    }
+   
+}
+.font_active {
+    @extend .font;
+    background-color: var(--color-primaryDark);
+    p {
+        color:var(--color-white);
+        
+    }
+}
+
+.sans{
+    font-family: "Kumbh Sans", sans-serif;;
+ }
+ .mono {
+     font-family: "Space Mono", monospace;
+ }
+ .serif {
+      font-family: 'Roboto Slab', serif;
+ }
